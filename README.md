@@ -1,6 +1,7 @@
 # check_influxdb
 InfluxDB nagios check
 
+```
 Usage of ./check_influxdb:
   -H string
     	influxdb host (default "localhost")
@@ -22,3 +23,4 @@ Usage of ./check_influxdb:
     	influxdb username (default "admin")
   -w int
     	warning threshold for number of returned records (default 10000)
+```
