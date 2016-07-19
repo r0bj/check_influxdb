@@ -77,6 +77,17 @@ func main() {
 		check.AddResult(nagiosplugin.UNKNOWN, "query to influxdb failed")
 		return
 	}
+
+	if len(res[0].Series) < 1 {
+		check.AddResult(nagiosplugin.CRITICAL, "influxdb query returns no series")
+		return
+	}
+
+	if len(res[0].Series[0].Values) < 1 {
+		check.AddResult(nagiosplugin.CRITICAL, "influxdb query returns no values")
+		return
+	}
+
 	count := res[0].Series[0].Values[0][1]
 
 	var i int
